@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="logo.jpg">
+  <title>ADIEL'S GRAPHIX — Web Studio</title>
+   
+
+  <!-- FontAwesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    :root{
+      --bg:#f5f7fb;
+      --card:#ffffff;
+      --accent:#0057d8;
+      --muted:#667085;
+      --success:#16a34a;
+      --danger:#ef4444;
+      --radius:14px;
+      --shadow: 0 8px 24px rgba(17,24,39,0.06);
+      font-family: "Poppins", sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,var(--bg),#eef3ff);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+    }
+
+    .container{
+      width:100%;
+      max-width:1000px;
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px;
+      display:grid;
+      grid-template-columns: 350px 1fr;
+      gap:28px;
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      align-items:flex-start;
+    }
+    .logo {
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .logo img{
+      width:56px;
+      height:56px;
+      border-radius:10px;
+      object-fit:cover;
+    }
+    .logo h1{
+      margin:0;
+      font-size:20px;
+    }
+    .lead { color:var(--muted); font-size:14px; line-height:1.45 }
+
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .field{ position:relative; }
+    label{ display:block; font-size:13px; color:#25303b; margin-bottom:6px; }
+    input[type="text"], input[type="email"], input[type="tel"], textarea, select{
+      width:90%;
+      padding:12px 40px 12px 14px;
+      border-radius:10px;
+      border:1px solid #e6eef9;
+      background:#fbfdff;
+      outline:none;
+      font-size:14px;
+      transition:box-shadow .12s, border-color .12s;
+      resize:vertical;
+    }
+    input:focus, textarea:focus, select:focus{
+      box-shadow:0 6px 18px rgba(3,7,18,0.06);
+      border-color:var(--accent);
+    }
+    textarea{ min-height:120px; }
+    .icon{
+      position:absolute;
+      right:12px;
+      top:38px;
+      transform:translateY(-22%);
+      color:var(--muted);
+      pointer-events:none;
+      font-size:16px;
+    }
+    .btn{
+    weight:90%;
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      margin-left:-35px;
+      padding:10px 10px;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:500;
+      box-shadow: 0 8px 20px rgba(3,7,18,0.08);
+    }
+    .notice{
+      padding:10px 12px;
+      border-radius:10px;
+      font-size:14px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      box-shadow: 0 6px 18px rgba(3,7,18,0.03);
+      border:1px solid rgba(0,0,0,0.03);
+    }
+    .notice.success{ background:#f0fdf4; color:var(--success); }
+    .notice.error{ background:#fff5f5; color:var(--danger); }
+
+    @media (max-width:880px){
+      .container{ grid-template-columns:1fr; padding:18px }
+      .logo h1{ font-size:18px }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <!-- LEFT INFO -->
+    <section class="brand">
+      <div class="logo">
+        <img src="logo.jpg" alt="ADIEL'S GRAPHIX">
+        <div>
+          <h1>Your Graphics</h1>
+          <div class="lead">We create modern design for all businesses.</div>
+        </div>
+      </div>
+      <div class="notice">
+        <i class="fas fa-envelope"></i>
+        <div>All feedback & uploads go to <b>ADIEL'S GRAPHIX </b><br>Replies within 24–48 hours.</div>
+      </div>
+    </section>
+
+    <!-- RIGHT FORM -->
+    <section>
+      <form action="https://getform.io/f/bkkpwzmb" method="POST" enctype="multipart/form-data" id="feedbackForm">
+        <!-- Name -->
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input type="text" name="name" id="name" placeholder="Enter your name" required>
+          <i class="icon fas fa-user"></i>
+        </div>
+
+        <!-- Email -->
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" name="_replyto" id="email" placeholder="you@example.com" required>
+          <i class="icon fas fa-envelope"></i>
+        </div>
+
+        <!-- Contact Number -->
+        <div class="field">
+          <label for="phone">Contact Number</label>
+          <input type="tel" name="phone" id="phone" placeholder="e.g. +233 541 234 567" required>
+          <i class="icon fas fa-phone"></i>
+        </div>
+
+        <!-- Domain -->
+        <div class="field">
+          <label for="domain">Do you already have a Logo?</label>
+          <select name="domain_status" id="domain" required>
+            <option value="">Select an option</option>
+            <option value="Yes, I already have a domain">✅ Yes, I already have a Logo</option>
+            <option value="No, I need one">❌ No, I need one</option>
+          </select>
+          <i class="icon fas fa-globe"></i>
+        </div>
+
+        <!-- Type of Website -->
+        <div class="field">
+          <label for="websiteType">Type of Website You Want</label>
+          <select name="website_type" id="websiteType" required>
+            <option value="">Select type</option>
+            <option>Business Design</option>
+            <option> Personal Design</option>
+            
+            <option> Education Design</option>
+            <option>Others</option>
+          </select>
+          <i class="icon fas fa-laptop-code"></i>
+        </div>
+
+        <!-- File Upload -->
+        <div class="field">
+          <label for="upload">Upload Images or Documents</label>
+          <input type="file" name="attachment" id="upload" multiple accept=".jpg,.png,.pdf,.doc,.docx,.jpeg">
+          <i class="icon fas fa-upload"></i>
+        </div>
+
+        <!-- Message -->
+        <div class="field">
+          <label for="message">Message / Feedback</label>
+          <textarea name="message" id="message" placeholder="Describe your project or feedback..." required></textarea>
+        </div>
+
+        <!-- Hidden -->
+        <input type="hidden" name="_subject" value="New Feedback from Website">
+        <input type="hidden" name="_next" value="https://yoursite.com/thankyou.html">
+
+        <button class="btn" type="submit">Send Feedback</button>
+        <div id="formStatus"></div>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById('feedbackForm');
+    const formStatus = document.getElementById('formStatus');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        formStatus.innerHTML = '<div class="notice success"><i class="fas fa-check-circle"></i> Thank you! Your feedback and files have been sent successfully. You’ll receive an email notification at ADIEL'S GRAPHIX.</div>';
+        form.reset();
+      } else {
+        formStatus.innerHTML = '<div class="notice error"><i class="fas fa-exclamation-circle"></i> Oops! Something went wrong. Please try again.</div>';
+      }
+    });
+  </script>
+</body>
+</html>
